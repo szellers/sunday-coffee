@@ -1,0 +1,415 @@
+/* =============================================
+   Patio Coffee Club — Shared Styles
+   ============================================= */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+/* --- Design Tokens --- */
+:root {
+  --bg:        #FAF3E0;
+  --bg-card:   #FFF8EE;
+  --primary:   #5C3D2E;
+  --accent:    #C96A3A;
+  --text:      #2E1A0E;
+  --muted:     #8A6A58;
+  --border:    #E0CDB8;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Lato', system-ui, sans-serif;
+
+  --radius: 8px;
+  --shadow: 0 2px 12px rgba(92, 61, 46, 0.1);
+  --max-width: 960px;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* --- Base --- */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  line-height: 1.25;
+}
+
+/* --- Layout --- */
+.container {
+  width: min(var(--max-width), 100%);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+main { flex: 1; }
+
+section { padding-block: 4rem; }
+
+/* --- Navigation --- */
+.site-nav {
+  background: var(--primary);
+  padding-block: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--bg) !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.nav-logo:hover { text-decoration: none; opacity: 0.9; }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #E8D8C4;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--bg);
+  transition: all 0.3s;
+}
+
+/* --- Hero --- */
+.hero {
+  background: linear-gradient(135deg, #5C3D2E 0%, #7A5240 60%, #C96A3A 100%);
+  color: #FAF3E0;
+  text-align: center;
+  padding-block: 6rem 5rem;
+}
+
+.hero h1 {
+  color: #FAF3E0;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero .tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #E8D8C4;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.hero .next-event {
+  font-size: 0.9rem;
+  color: #C8B49A;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  border: none;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--bg);
+  border: 2px solid var(--bg);
+}
+
+/* --- Section headings --- */
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- About section --- */
+.about {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text p { margin-bottom: 1rem; color: var(--muted); }
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-details {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.detail-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: block;
+}
+
+.detail-value {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* --- Quick links --- */
+.quick-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* --- Event cards --- */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.5rem;
+  align-items: start;
+  box-shadow: var(--shadow);
+}
+
+.event-date {
+  text-align: center;
+  background: var(--primary);
+  color: #FAF3E0;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  min-width: 60px;
+}
+
+.event-date .day { font-size: 1.75rem; font-weight: 700; line-height: 1; font-family: var(--font-heading); }
+.event-date .month { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.85; }
+
+.event-info h3 { font-size: 1.15rem; margin-bottom: 0.25rem; }
+
+.event-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.event-description { font-size: 0.95rem; color: var(--muted); }
+
+.event-tag {
+  display: inline-block;
+  background: #F0E4D4;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+
+/* --- Gallery grid --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover img { transform: scale(1.04); }
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  background: linear-gradient(135deg, #EDE0CE, #D9C9B0);
+  font-size: 0.85rem;
+}
+
+.gallery-placeholder span:first-child { font-size: 2.5rem; }
+
+/* --- Page hero (inner pages) --- */
+.page-hero {
+  background: var(--primary);
+  color: #FAF3E0;
+  padding-block: 3rem;
+  text-align: center;
+}
+
+.page-hero h1 { color: #FAF3E0; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.page-hero p { color: #C8B49A; margin-top: 0.5rem; }
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--primary);
+  color: #C8B49A;
+  text-align: center;
+  padding-block: 2rem;
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+.site-footer a { color: #E8D8C4; }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li a {
+    display: block;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .site-nav { position: relative; }
+
+  .event-card { grid-template-columns: 1fr; }
+  .event-date { display: flex; gap: 0.5rem; align-items: center; width: fit-content; }
+  .event-date .day { font-size: 1.2rem; }
+
+  .quick-links { flex-direction: column; }
+  .quick-links .btn { text-align: center; }
+}
